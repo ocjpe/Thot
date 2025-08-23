@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS, cross_origin
 from sqlalchemy.orm import sessionmaker
 from database import engine
 from schema import Base, Note
@@ -10,7 +11,9 @@ session = Session()
 
 ### Initialise l'application Flask
 app = Flask(__name__)
+cors = CORS(app)
 
+app.config['CORS_HEADERS'] = 'Content-Type'
 ### Lance les migrations
 migrations() 
 
@@ -30,6 +33,7 @@ def getNote(id):
 
 ### Route pour récupérer toutes les notes
 @app.get("/getNotes")
+@cross_origin()
 def getNotes():
     notes = session.query(Note).all()
     response = []
