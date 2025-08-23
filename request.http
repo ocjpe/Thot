@@ -1,0 +1,30 @@
+GET http://localhost:8000/getNotes
+
+###
+
+GET http://localhost:8000/getNote/174
+
+###
+
+POST http://localhost:8000/post
+content-type: application/json
+
+{
+  "title": "test",
+  "content": "contenu de ma note"
+}
+
+###
+
+PUT http://localhost:8000/put/174
+content-type: application/json
+
+{
+  "id": 174,
+  "title": "How to update a book",
+  "content": "Test"
+}
+
+###
+
+DELETE http://localhost:8000/delete/171
