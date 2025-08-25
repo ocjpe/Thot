@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/oceane/Desktop/development/Thot/thot-back/.venv"
+VIRTUAL_ENV="/Users/oceane/Desktop/development/Thot/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

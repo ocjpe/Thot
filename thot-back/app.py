@@ -13,7 +13,6 @@ session = Session()
 app = Flask(__name__)
 cors = CORS(app)
 
-app.config['CORS_HEADERS'] = 'Content-Type'
 ### Lance les migrations
 migrations() 
 
@@ -71,6 +70,7 @@ def putNote(id):
 
 ### Route pour supprimer une note
 @app.delete("/delete/<int:id>")
+
 def deleteNote(id):
     note = session.query(Note).get(id)
     if note is not None: 
