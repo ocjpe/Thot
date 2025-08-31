@@ -182,7 +182,7 @@ export default function Home() {
         <aside id="default-sidebar" className="fixed border border-gray-800 top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
           <div className="h-full px-3 py-4 overflow-y-auto bg-[#627C85]">
             <div className="flex self-center justify-center pb-5 pt-3">
-              <span className="text-black text-2xl font-semibold whitespace-nowrap">THOT</span>
+              <span className="text-black text-2xl font-semibold whitespace-nowrap">Seshat</span>
             </div>
             <div className="flex justify-center">
               <button 
@@ -264,7 +264,7 @@ export default function Home() {
       {/* Footer */ }
       <footer className="sm:ml-64">
         <div className="w-full mx-auto max-w-screen-xl p-4">
-          <span className="flex justify-center text-sm text-gray-500 sm:text-center">© 2025. <a href="https://ocejpe.fr/" className="hover:underline">THOT™</a>. All Rights Reserved.</span>
+          <span className="flex justify-center text-sm text-gray-500 sm:text-center">© 2025. <a href="https://ocejpe.fr/" className="hover:underline">Seshat™</a>. All Rights Reserved.</span>
         </div>
       </footer>
     </div>

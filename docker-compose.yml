@@ -9,10 +9,10 @@ services:
 
   next:
     build:
-      context: ./thot-front
+      context: ./seshat-front
     command: npm run dev
     volumes:
-      - ./thot-front:/app
+      - ./seshat-front:/app
       - /app/node_modules
     working_dir: /app
     ports:
@@ -25,10 +25,10 @@ services:
 
   python:
     build:
-      context: ./thot-back
+      context: ./seshat-back
     command: flask run --host=0.0.0.0 --port=8000
     volumes:
-      - ./thot-back:/app
+      - ./seshat-back:/app
     working_dir: /app
     environment:
       - DATABASE_URL=postgresql://postgres:example@db:5432/postgres
