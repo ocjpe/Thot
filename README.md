@@ -10,7 +10,7 @@ This project consists of a Next.js frontend and a Flask backend with PostgreSQL 
 ## Project Structure
 
 ```
-thot/
+seshat/
 ├── seshat-back/    # Flask backend
 └── seshat-front/   # Next.js frontend
 ```
@@ -20,7 +20,7 @@ thot/
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd thot
+cd seshat
 ```
 
 2. Start the application using Docker Compose:
