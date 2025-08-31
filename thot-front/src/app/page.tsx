@@ -15,10 +15,12 @@ export default function Home() {
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   {/* Fonction pour récupérer les notes */ }
   const fetchNotes = useCallback(async () => { 
     try {
-      const response = await fetch('http://localhost:8000/getNotes');
+      const response = await fetch(`${apiUrl}/getNotes`);
       if (response.ok) {
         const notesData = await response.json();
         setNotes(notesData.response);
@@ -62,7 +64,7 @@ export default function Home() {
   {/* Fonction pour créer une nouvelle note */ }
   const createNote = useCallback(async (title: string, content: string) => {
     try {
-      const response = await fetch('http://localhost:8000/post', {
+      const response = await fetch(`${apiUrl}/post`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -93,7 +95,7 @@ export default function Home() {
   {/* Fonction pour modifier une note */ }
   const updateNote = useCallback(async (id: string, title: string, content: string) => {
     try {
-      const response = await fetch(`http://localhost:8000/updateNote/${id}`, {
+      const response = await fetch(`${apiUrl}/put/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -131,7 +133,7 @@ export default function Home() {
   {/* Fonction pour supprimer une note */ }
   const deleteNote = useCallback(async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:8000/delete/${id}`, {
+      const response = await fetch(`${apiUrl}/delete/${id}`, {
         method: 'DELETE',
       });
     

@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports: 
+      - 5432:5432
+
+  next:
+    build:
+      context: ./thot-front
+    command: npm run dev
+    volumes:
+      - ./thot-front:/app
+      - /app/node_modules
+    working_dir: /app
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - python
+
+  python:
+    build:
+      context: ./thot-back
+    command: flask run --host=0.0.0.0 --port=8000
+    volumes:
+      - ./thot-back:/app
+    working_dir: /app
+    environment:
+      - DATABASE_URL=postgresql://postgres:example@db:5432/postgres
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - CORS_ORIGINS=http://localhost:3000
+    ports:
+      - 8000:8000
+    depends_on:
+      - db

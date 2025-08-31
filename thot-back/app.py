@@ -11,15 +11,11 @@ session = Session()
 
 ### Initialise l'application Flask
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app, origins=["http://localhost:3000"])
 
 ### Lance les migrations
 migrations() 
 
-### Route de base
-@app.route("/")
-def route():
-    return "hello world"
     
 ### Route pour récupérer une note
 @app.get("/getNote/<int:id>")
